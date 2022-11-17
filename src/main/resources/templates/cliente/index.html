@@ -2,13 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: head"></head>
+<!-- <head th:include="layout :: head"></head> -->
 <body>
-    <nav th:replace="layout :: menu"></nav>
+    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
-        <p th:text="${valor}" class="btn btn-primary"></p>
-
+        
+        <a href="/clientes/novo" class="btn btn-primary">Novo</a>
+        <table class="table" id="tabclienes">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="umCliente : ${listaCientes}">
+                    <td th:text="${umCliente.id}"></td>
+                    <td th:text="${umCliente.nome}"></td>
+                    <td th:text="${umCliente.telefone}"></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
-    <footer th:include="layout :: footer"></footer>
+
+    <!-- <footer th:include="layout :: footer"></footer> -->
 </body>
 </html>

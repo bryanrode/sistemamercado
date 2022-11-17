@@ -2,13 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: head"></head>
+<!-- <head th:include="layout :: head"></head> -->
 <body>
-    <nav th:replace="layout :: menu"></nav>
+    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
-        <p th:text="${valor}" class="btn btn-primary"></p>
+        <form th:action="@{/clientes/(form)}"
+        method="POST" th:object="${cliente}">
 
+        <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="txtnome">Nome:</label>
+                <input type="text" th:field="*{nome}"
+                class="form-control" id="txtnome">
+            </div>
+
+            <div class="form-group">
+                <label for="txttelefone">Telefone:</label>
+                <input type="text" th:field="*{telefone}"
+                class="form-control" id="txttelefone">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
     </main>
-    <footer th:include="layout :: footer"></footer>
+    <!-- <footer th:include="layout :: footer"></footer> -->
 </body>
 </html>
