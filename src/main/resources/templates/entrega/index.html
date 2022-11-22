@@ -7,20 +7,20 @@
     <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
         
-        <a href="/clientes/novo" class="btn btn-primary">Novo</a>
-        <table class="table" id="tabclientes">
+        <a href="/entregas/novo" class="btn btn-primary">Novo</a>
+        <table class="table" id="tabentregas">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nome</th>
-                    <th>Telefone</th>
+                    <th>Valor</th>
+                    <th>Endereço</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="umCliente : ${listaCientes}">
-                    <td th:text="${umCliente.id}"></td>
-                    <td th:text="${umCliente.nome}"></td>
-                    <td th:text="${umCliente.telefone}"></td>
+                <tr th:each="umaEntrega : ${listaEntregas}">
+                    <td th:text="${umaEntrega.id}"></td>
+                    <td th:text="${umaEntrega.valor}"></td>
+                    <td th:text="${umEntrega.endereco}"></td>
                 </tr>
             </tbody>
         </table>

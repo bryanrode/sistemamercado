@@ -5,33 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.univille.sistemamercado.entity.Produto;
-import br.univille.sistemamercado.repository.ProdutoRepository;
-import br.univille.sistemamercado.service.ProdutoService;
+import br.univille.sistemamercado.entity.Entrega;
+import br.univille.sistemamercado.repository.EntregaRepository;
+import br.univille.sistemamercado.service.EntregaService;
 
 @Service
-public class ProdutoServiceImpl implements ProdutoService{
+public class EntregaServiceImpl  implements EntregaService{
 
     @Autowired
-    public ProdutoRepository repositorio;
+    private EntregaRepository repositorio;
 
     @Override
-    public List<Produto> getAll() {
+    public List<Entrega> getAll() {
         return repositorio.findAll();
     }
 
     @Override
-    public Produto save(Produto produto) {
-        return repositorio.save(produto);
+    public Entrega save(Entrega entrega) {
+        return repositorio.save(entrega);
     }
 
     @Override
-    public Produto findById(long id) {
+    public Entrega findById(long id) {
         var resultado = repositorio.findById(id);
         if(resultado.isPresent()){
             return resultado.get();
         }
-        return new Produto();
+
+        return new Entrega();
     }
 
     @Override

@@ -10,49 +10,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.univille.sistemamercado.entity.Produto;
-import br.univille.sistemamercado.service.ProdutoService;
+import br.univille.sistemamercado.entity.Entrega;
+import br.univille.sistemamercado.service.EntregaService;
 
 @Controller
-@RequestMapping("/produtos")
-public class ProdutoController {
+@RequestMapping("/entregas")
+public class EntregaController {
     
-    @Autowired 
-    private ProdutoService service;
+    @Autowired
+    private EntregaService service;
 
     @GetMapping
     public ModelAndView index(){
-        var listaProdutos = service.getAll();
-        return new ModelAndView("produto/index","listaProdutos",listaProdutos);
+        var listaEntregas = service.getAll();
+        return new ModelAndView("entrega/index","listaEntregas",listaEntregas);
     }
 
     @GetMapping("/novo")
     public ModelAndView novo(){
-        var produto = new Produto();
+        var entrega = new Entrega();
         HashMap<String,Object> dados = new HashMap<>();
-        dados.put("produto", produto);
-        return new ModelAndView("produto/form",dados);
+        dados.put("entrega", entrega);
+        return new ModelAndView("entrega/form",dados);
     }
-
+    
     @PostMapping(params = "form")
-    public ModelAndView save(Produto produto){
+    public ModelAndView save(Entrega entrega){
         
-        service.save(produto);
-        return new ModelAndView("redirect:/produtos");
+        service.save(entrega);
+        return new ModelAndView("redirect:/entregas");
     }
-
+    
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
-        var umProduto = service.findById(id);
+        var umaEntrega = service.findById(id);
         HashMap<String,Object> dados = new HashMap<>();
-        dados.put("produto",umProduto);
-        return new ModelAndView("produto/form", dados);
+        dados.put("entrega",umaEntrega);
+        return new ModelAndView("entrega/form", dados);
 
     }
 
     @GetMapping("/delete/{id}")
     public ModelAndView delete(@PathVariable ("id") long id){
         service.delete(id);
-        return new ModelAndView("redirect:/produtos");
+        return new ModelAndView("redirect:/entregas");
     }
 }
