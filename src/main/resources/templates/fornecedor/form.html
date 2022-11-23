@@ -6,8 +6,8 @@
 <body>
     <nav th:replace="layout :: menu"></nav>
     <main class="container">
-        <form th:action="@{/produtos/(form)}" 
-            method="POST" th:object="${produto}">
+        <form th:action="@{/fornecedores/(form)}" 
+            method="POST" th:object="${fornecedor}">
         
             <input type="hidden" th:field="*{id}">
                 <div class="form-group">
@@ -17,18 +17,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Fornecedor:</label>
-                    <select class="form-select" th:field="*{fornProduto}">
-                        <option th:each="umFornecedor : ${listaFornecedores}"
-                        th:text="${umFornecedor.nome}"
-                        th:value="${umFornecedor.id}"></option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="txtvalor">Valor:</label>
-                    <input type="text" th:field="*{Valor}"
-                    class="form-control" id="txtvalor">
+                    <label for="txtemail">E-mail:</label>
+                    <input type="text" th:field="*{email}"
+                    class="form-control" id="txtemail">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

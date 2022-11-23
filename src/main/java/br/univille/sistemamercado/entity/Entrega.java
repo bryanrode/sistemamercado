@@ -2,11 +2,13 @@ package br.univille.sistemamercado.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,6 +23,8 @@ public class Entrega {
     private Date data;
     @Column(length = 3000)
     private String endereco;
+    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE}) 
+    private ListaCompra entrega;
 
     public long getId() {
         return id;
@@ -39,6 +43,12 @@ public class Entrega {
     }
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    public ListaCompra getEntrega() {
+        return entrega;
+    }
+    public void setEntrega(ListaCompra entrega) {
+        this.entrega = entrega;
     }
     
 }

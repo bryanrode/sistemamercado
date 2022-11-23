@@ -7,20 +7,18 @@
     <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
         
-        <a href="/entregas/novo" class="btn btn-primary">Novo</a>
-        <table class="table" id="tabentregas">
+        <a href="/listacompras/novo" class="btn btn-primary">Novo</a>
+        <table class="table" id="tablistacompras">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Valor</th>
-                    <th>Endereço</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="umaEntrega : ${listaEntregas}">
-                    <td th:text="${umaEntrega.id}"></td>
-                    <td th:text="${umaEntrega.data}"></td>
-                    <td th:text="${umaEntrega.endereco}"></td>
+                <tr th:each="umaListaCompra : ${listacompras}">
+                    <td th:text="${umaListaCompra.id}"></td>
+                    <td th:text="${umaListaCompra.nome}"></td>
                 </tr>
             </tbody>
         </table>

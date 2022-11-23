@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- <head th:include="layout :: head"></head> -->
+<body>
+    <!-- <nav th:replace="layout :: menu"></nav> -->
+    <main class="container">
+        <form th:action="@{/listacompras/(form)}"
+        method="POST" th:object="${listacompra}">
+
+        <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="txtvalor">Valor:</label>
+                <input type="text" th:field="*{valor}"
+                class="form-control" id="txtvalor">
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Produtos Cadastrados
+                    </h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="umItem, stat : *{listaItens}">
+                                <td th:text="${umItem.produto?.nome}"></td>
+                                <input type="hidden"
+                                    th:field="*{listaItens[__${stat.index}__].produto}">
+                                <td th:text="${umItem.quantidade}"></td>
+                                <input type="hidden"
+                                    th:field="*{listaItens[__${stat.index}__].quantidade}">
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </main>
+    <!-- <footer th:include="layout :: footer"></footer> -->
+</body>
+</html>
