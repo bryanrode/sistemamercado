@@ -17,6 +17,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Fornecedor:</label>
+                    <select class="form-select" th:field="*{fornProduto}">
+                        <option th:each="umFornecedor : ${listaFornecedores}"
+                        th:text="${umFornecedor.nome}"
+                        th:value="${umFornecedor.id}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="txtvalor">Valor:</label>
                     <input type="text" th:field="*{Valor}"
                     class="form-control" id="txtvalor">
