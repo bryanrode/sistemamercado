@@ -2,11 +2,13 @@ package br.univille.sistemamercado.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.univille.sistemamercado.entity.ListaCompra;
 import br.univille.sistemamercado.repository.ListaCompraRepository;
 import br.univille.sistemamercado.service.ListaCompraService;
 
+@Service
 public class ListaCompraServiceImpl implements ListaCompraService{
 
     @Autowired
