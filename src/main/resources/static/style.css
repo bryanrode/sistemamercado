@@ -6,9 +6,10 @@ body{
 }
 
 .container ul{
+    
     list-style-type: none;
     padding: 0;
-    background-color: rgb(116, 89, 61);
+    background-color: rgb(45, 47, 62);
 }
 
 .container ul li{
@@ -23,16 +24,51 @@ body{
 }
 
 .container ul li a:hover{
-    color: rgb(63, 50, 50);
+    background-color: rgb(99, 98, 105);
 }
 
 .rodape{
     padding: 0;
-    background-color: rgb(116, 89, 61);
+    background-color: rgb(24, 25, 28);
 }
 
 .rodape p{
     color: white;
-    padding: 8px;
+    padding: 2px;
     text-align: center;
 }
+
+footer.rodape{
+    border-top: 1px solid #333;
+    bottom: 15px;
+    left: 0;
+    height: 130px;
+    position: fixed;
+    width: 100%;
+  }
+
+  .btn{
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .3s ;
+    border-radius: 5px;
+  }
+  .btn-primary{
+    background-color: rgb(33, 38, 36);
+    color: aliceblue;
+  }
+  .btn-primary:hover{
+    background-color: rgb(49, 72, 91);
+  }
+
+  .table{
+    padding: 20px;
+  }
+  .table th{
+    padding: 12px 60px 10px 60px;
+  }
+  .table td{
+    padding: 12px 60px 10px 60px;
+  }

@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <title>Menu</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head> 
 <body>
-        <main class="container">
-
+        <nav class="container">
             <ul>
                 <li>
-                    <a href="/home" >Home</a>
+
+                    <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
+                    
                 </li>
                 <li>
                     <a href="/clientes">Clientes</a>
                 </li>
                 <li>
-                    <a href="/entregas">Entregas</a>
+                    <a href="/entregas">Entregas <i class="fa fa-truck" aria-hidden="true"></i></a>
                 </li>
                 <li>
                     <a href="/fornecedores">Fornecedores</a>
@@ -25,11 +27,13 @@
                     <a href="/produtos">Produtos</a>
                 </li>
                 <li>
-                    <a href="/listacompras">Lista de Compras</a>
+                    <a href="/listacompras">Lista de Compras <i class="fa fa-list-ul" aria-hidden="true"></i></a>
                 </li>
             </ul>
-            <footer class="rodape">
+        </nav>
 
+        <nav th:fragment="rodape">
+            <footer class="rodape">
                 <p>
                     <i class="fab fa-instagram"aria-hidden="true"></i>
                     <a>Bryan Rode</a>
@@ -43,8 +47,9 @@
                     <a>bryan.rode@univille.br</a>
                 </p>
 
+                
             </footer>
+        </nav>
 
-        </main>
     </body>
 </html>
