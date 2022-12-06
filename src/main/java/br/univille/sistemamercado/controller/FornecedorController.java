@@ -31,7 +31,7 @@ public class FornecedorController {
         var fornecedor = new Fornecedor();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("fornecedor", fornecedor);
-        return new ModelAndView("cliente/form",dados);
+        return new ModelAndView("fornecedor/form",dados);
     }
 
     @PostMapping(params = "form")

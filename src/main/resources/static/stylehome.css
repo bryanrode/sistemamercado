@@ -1,0 +1,7 @@
+body {
+    background-image: url(./img/logo.jpg); 
+    background-repeat: no-repeat;
+    background-size: 650px;
+    background-position: center;
+    background-position-y: 100px;
+}

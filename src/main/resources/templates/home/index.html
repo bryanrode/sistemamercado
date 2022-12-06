@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylehome.css">
 </head> 
 <body>
         <nav class="container">
@@ -17,19 +18,27 @@
                 <li>
                     <a href="/clientes">Clientes</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="/entregas">Entregas <i class="fa fa-truck" aria-hidden="true"></i></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="/fornecedores">Fornecedores</a>
                 </li>
                 <li>
                     <a href="/produtos">Produtos</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="/listacompras">Lista de Compras <i class="fa fa-list-ul" aria-hidden="true"></i></a>
-                </li>
+                </li> -->
             </ul>
+        </nav>
+
+        <nav class="menu">
+
+                <a href="/listacompras/novo" class="btn btn-primary">Ir às Compras <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
+                <a href="/entregas/novo" class="btn btn-primary">Adicionar Endereço para entrega <i class="fa fa-truck" aria-hidden="true"></i></a>
+
         </nav>
 
         <nav th:fragment="rodape">
