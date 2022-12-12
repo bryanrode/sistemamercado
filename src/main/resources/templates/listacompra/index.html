@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styletabela.css">
     </head>
 
 <body>
@@ -17,9 +18,6 @@
             <li>
                 <a href="/clientes">Clientes</a>
             </li>
-            <!-- <li>
-                <a href="/entregas">Entregas</a>
-            </li> -->
             <li>
                 <a href="/fornecedores">Fornecedores</a>
             </li>
@@ -29,30 +27,27 @@
             <li>
                 <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
             </li>
-            <!-- <li>
-                <a href="/listacompras">Lista de Compras</a>
-            </li> -->
+
         </ul>
         
         <a href="/listacompras/novo" class="btn btn-primary">Nova Lista de Compras</a>
+        <h1 class="titulo">Pedidos</h1>
         <table class="table" id="tablistacompras">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Valor</th>
-                    <th></th>
+                    <th>Cliente</th>
+                    <!-- <th>Endereço</th> -->
+                    <th>Valor Total</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="umaListaCompra : ${listacompras}">
+                <tr th:each="umaListaCompra : ${listaCompra}">
                     <td th:text="${umaListaCompra.id}"></td>
-                    <td th:text="${umaListaCompra.nome}"></td>
-                    <td>
-                        <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-primary2">Alterar</a>
-                        <span class="btn-excluir">
-                          Excluir
-                      </span>
-                      </td>
+                    <td th:text="${umaListaCompra.cliente?.nome}"></td>
+                    <!-- <td th:text="${umaListaCompra.endereco?.endereco}"></td> -->
+                    <td th:text="${#aggregates.sum(umaListaCompra.listaItens.![getValorFinal])}"></td>
                 </tr>
             </tbody>
         </table>

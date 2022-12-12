@@ -124,6 +124,15 @@ button:hover{
   .btn-excluir:hover{
     background-color: rgb(255, 18, 18);
   }
+  .btn-danger{
+    background-color: rgb(226, 80, 76);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    color: aliceblue;
+    padding: 8px;
+    border-radius: 3px;
+  }
 
   img {
     width: 100%;
@@ -155,9 +164,12 @@ button:hover{
     padding: 12px 60px 10px 60px;
   } */
 
-  .coluna, th{
-    padding: 30px;
+.coluna, th{
+    padding: 10px 30px;
   }
   .card-title{
     margin: 8px;
   }
+  .coluna2, td{
+    padding: 10px 30px;
+  } 
