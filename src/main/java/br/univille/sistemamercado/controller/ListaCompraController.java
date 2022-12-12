@@ -47,6 +47,7 @@ public class ListaCompraController {
         dados.put("listaClientes",listaClientes);
         dados.put("listaEntregas",listaEntregas);
         dados.put("listaProdutos", listaProdutos);
+        dados.put("novoItem",new ItensLista());
         return new ModelAndView("listacompra/form",dados);
     }
 
@@ -65,7 +66,7 @@ public class ListaCompraController {
         var listaClientes = clienteService.getAll();
         var listaProdutos = produtoService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
-        dados.put("listaCompra",listaCompra);
+        dados.put("listacompra",listaCompra);
         dados.put("listaClientes",listaClientes);
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem",new ItensLista());
@@ -73,18 +74,17 @@ public class ListaCompraController {
     }
 
     @PostMapping(params = "removeitem")
-    public ModelAndView removerItem(@RequestParam("removeitem") int index, ListaCompra venda){
-        venda.getListaItens().remove(index);
+    public ModelAndView removerItem(@RequestParam("removeitem") int index, ListaCompra listaCompra){
+        listaCompra.getListaItens().remove(index);
 
         var listaClientes = clienteService.getAll();
         var listaProdutos = produtoService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
-        dados.put("venda",venda);
+        dados.put("listacompra",listaCompra);
         dados.put("listaClientes",listaClientes);
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem",new ItensLista());
         return new ModelAndView("listaCompra/form", dados);
     }
-
 
 }

@@ -43,4 +43,7 @@ public class ItensLista {
         this.valorVenda = valorVenda;
     }
     
+    public float getValorFinal(){
+        return this.getValorVenda() * this.getQuantidade();
+    }
 }
