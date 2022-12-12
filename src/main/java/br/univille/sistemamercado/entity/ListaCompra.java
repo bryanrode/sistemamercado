@@ -20,6 +20,8 @@ public class ListaCompra {
     private Cliente cliente;
     @OneToMany(cascade = CascadeType.ALL)
     private List<ItensLista> listaItens = new ArrayList<>();
+    @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE}) 
+    private Entrega endereco;
     
    
     public Cliente getCliente() {
@@ -45,6 +47,12 @@ public class ListaCompra {
     }
     public void setListaItens(List<ItensLista> listaItens) {
         this.listaItens = listaItens;
+    }
+    public Entrega getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Entrega endereco) {
+        this.endereco = endereco;
     }
 
 }

@@ -12,7 +12,7 @@
     <nav class="container">
         <ul>
             <li>
-                <a href="/home" >Home</a>
+                <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
             </li>
             <li>
                 <a href="/clientes">Clientes</a>
@@ -26,10 +26,13 @@
             <li>
                 <a href="/produtos">Produtos</a>
             </li>
+            <li>
+                <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+            </li>
             <!-- <li>
                 <a href="/listacompras">Lista de Compras</a>
             </li> -->
-        </ul>>
+        </ul>
         
         <a href="/listacompras/novo" class="btn btn-primary">Nova Lista de Compras</a>
         <table class="table" id="tablistacompras">
@@ -37,12 +40,19 @@
                 <tr>
                     <th>Id</th>
                     <th>Valor</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="umaListaCompra : ${listacompras}">
                     <td th:text="${umaListaCompra.id}"></td>
                     <td th:text="${umaListaCompra.nome}"></td>
+                    <td>
+                        <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-primary2">Alterar</a>
+                        <span class="btn-excluir">
+                          Excluir
+                      </span>
+                      </td>
                 </tr>
             </tbody>
         </table>

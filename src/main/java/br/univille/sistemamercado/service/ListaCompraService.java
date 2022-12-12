@@ -7,5 +7,4 @@ public interface ListaCompraService {
     List<ListaCompra>getAll();
     ListaCompra save(ListaCompra listacompra);
     ListaCompra findById(long id);
-    void delete(long id);
 }

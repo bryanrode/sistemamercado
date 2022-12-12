@@ -10,7 +10,8 @@
   </head>
 
 <body>
-  <nav class="container">
+
+  <main class="container">
     <ul>
         <li>
             <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
@@ -27,10 +28,13 @@
         <li>
             <a href="/produtos">Produtos</a>
         </li>
+        <li>
+          <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+      </li>
         <!-- <li>
             <a href="/listacompras">Lista de Compras</a>
         </li> -->
-    </ul>>
+    </ul>
         
     <a href="/produtos/novo" class="btn btn-primary"> Cadastrar Produtos</a>
     <h1 class="titulo">Tabela de Produtos</h1>
@@ -41,6 +45,7 @@
                   <th>Nome</th>
                   <th>Fornecedor</th>
                   <th>Valor</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -49,11 +54,17 @@
                   <td th:text="${umProduto.nome}"></td>
                   <td th:text="${umProduto.fornProduto?.nome}"></td>
                   <td th:text="${umProduto.valor}"></td>
+                  <td>
+                    <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-primary2">Alterar</a>
+                    <span class="btn-excluir">
+                      Excluir
+                  </span>
+                  </td>
                 </tr>
               </tbody>
             </table>
 
-          </nav>
+          </main>
 
    <footer class="rodape">
         <p>
@@ -69,6 +80,6 @@
             <a>bryan.rode@univille.br</a>
         </p>
     </footer>
-
+    <script th:src="@{/script3.js}"></script>
 </body>
 </html>

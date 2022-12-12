@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styletabela.css">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
 </head>
 
 <body>
-    <nav class="container">
+    <main class="container">
         <ul>
             <li>
                 <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
@@ -18,19 +19,16 @@
             <li>
                 <a href="/clientes">Clientes</a>
             </li>
-            <!-- <li>
-                <a href="/entregas">Entregas</a>
-            </li> -->
             <li>
                 <a href="/fornecedores">Fornecedores</a>
             </li>
             <li>
                 <a href="/produtos">Produtos</a>
             </li>
-            <!-- <li>
-                <a href="/listacompras">Lista de Compras</a>
-            </li> -->
-        </ul>>
+            <li>
+                <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+            </li>
+        </ul>
         
         <a href="/clientes/novo" class="btn btn-primary">Cadastrar Clientes</a>
         <h1 class="titulo">Tabela de Clientes</h1>
@@ -40,18 +38,44 @@
                     <th>Id</th>
                     <th>Nome</th>
                     <th>Telefone</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="umCliente : ${listaCientes}">
+                <tr th:each="umCliente : ${listaClientes}">
                     <td th:text="${umCliente.id}"></td>
                     <td th:text="${umCliente.nome}"></td>
                     <td th:text="${umCliente.telefone}"></td>
+                    <td>
+                        <a th:href="@{'/clientes/alterar/' + ${umCliente.id}}" class="btn btn-primary2">Alterar</a>
+                                <!-- <button class="btn btn-primary1 js-delete" th:data-id="${umCliente.id}">Excluir</button> -->
+                                <span class="btn-excluir">
+                                    Excluir
+                                </span>
+                      </td>
                 </tr>
             </tbody>
         </table>
         
-    </nav>
+    </main>
+
+    <div class="modal" tabindex="-1" id="modalcliente">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Excluir Cliente</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Confirma a exclusão do cliente?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
+              <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <footer class="rodape">
         <p>
@@ -67,6 +91,7 @@
             <a>bryan.rode@univille.br</a>
         </p>
     </footer>
-
+    <script th:src="@{/script.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
 </body>
 </html>

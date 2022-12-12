@@ -13,8 +13,10 @@ public class ItensLista {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int quantidade;
+    private float valorVenda;
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE}) 
     private Produto produto;
+    
     
     public long getId() {
         return id;
@@ -33,6 +35,12 @@ public class ItensLista {
     }
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+    public float getValorVenda() {
+        return valorVenda;
+    }
+    public void setValorVenda(float valorVenda) {
+        this.valorVenda = valorVenda;
     }
     
 }

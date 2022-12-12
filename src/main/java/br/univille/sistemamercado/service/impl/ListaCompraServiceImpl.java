@@ -32,10 +32,5 @@ public class ListaCompraServiceImpl implements ListaCompraService{
         }
         return new ListaCompra();
     }
-
-    @Override
-    public void delete(long id) {
-        repositorio.deleteById(id);
-    }
     
 }
