@@ -2,10 +2,37 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: head"></head>
-<body>
-    <nav th:replace="layout :: menu"></nav>
+    
+    <head>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styleform.css">
+    </head>
+
+    <body>
     <main class="container">
+
+        <ul>
+            <li>
+                <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="/clientes">Clientes</a>
+            </li>
+
+            <li>
+                <a href="/fornecedores">Fornecedores</a>
+            </li>
+            <li>
+                <a href="/produtos">Produtos</a>
+            </li>
+            <li>
+                <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+            </li>
+
+        </ul>
+
         <form th:action="@{/fornecedores/(form)}" 
             method="POST" th:object="${fornecedor}">
         
@@ -21,9 +48,26 @@
                     <input type="text" th:field="*{email}"
                     class="form-control" id="txtemail">
                 </div>
+                
+                <a href="/fornecedores" class="btn btn-primary3">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </main>
-    <footer th:include="layout :: footer"></footer>
+
+    <footer class="rodape">
+        <p>
+            <i class="fab fa-instagram"aria-hidden="true"></i>
+            <a>Bryan Rode</a>
+        </p>
+        <p>
+            <i class="fab fa-linkedin"aria-hidden="true"></i>
+            <a>Bryan Rode</a>
+        </p>
+        <p>
+            <i class="fa fa-envelope"aria-hidden="true"></i>
+            <a>bryan.rode@univille.br</a>
+        </p>
+    </footer>
+
 </body>
 </html>

@@ -2,30 +2,75 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<!-- <head th:include="layout :: head"></head> -->
-<body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
+    <head>
+      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="styletabela.css">
+  
+  </head>
+  <body>
     <main class="container">
-        
-        <a href="/fornecedores/novo" class="btn btn-primary">Novo</a>
-            <table class="table" id="tabfornecedores">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Nome</th>
-                  <th>E-mail</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="umFornecedor : ${listaFornecedores}">
-                  <td th:text="${umFornecedor.id}"></td>
-                  <td th:text="${umFornecedor.nome}"></td>
-                  <td th:text="${umFornecedor.email}"></td>
-                </tr>
-              </tbody>
-            </table>
+      <ul>
+          <li>
+              <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
+          </li>
+          <li>
+              <a href="/clientes">Clientes</a>
+          </li>
+          <li>
+              <a href="/fornecedores">Fornecedores</a>
+          </li>
+          <li>
+              <a href="/produtos">Produtos</a>
+          </li>
+          <li>
+            <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+          
+          <a href="/fornecedores/novo" class="btn btn-primary">Adicionar Fornecedor</a>
+          <h1 class="titulo">Tabela de Fornecedores</h1>
+              <table class="table" id="tabfornecedores">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="umFornecedor : ${listaFornecedores}">
+                    <td th:text="${umFornecedor.id}"></td>
+                    <td th:text="${umFornecedor.nome}"></td>
+                    <td th:text="${umFornecedor.email}"></td>
+                    <td>
+                      <a th:href="@{'/fornecedores/alterar/' + ${umFornecedor.id}}" class="btn btn-primary2">Alterar</a>
+                      <span class="btn-excluir">
+                        Excluir
+                    </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </main>
 
-    </main>
-    <!-- <footer th:include="layout :: footer"></footer> -->
-</body>
+
+          <footer class="rodape">
+                <p>
+                    <i class="fab fa-instagram"aria-hidden="true"></i>
+                    <a>Bryan Rode</a>
+                </p>
+                <p>
+                    <i class="fab fa-linkedin"aria-hidden="true"></i>
+                    <a>Bryan Rode</a>
+                </p>
+                <p>
+                    <i class="fa fa-envelope"aria-hidden="true"></i>
+                    <a>bryan.rode@univille.br</a>
+                </p>
+            </footer>
+            <script th:src="@{/script2.js}"></script>
+  </body>
 </html>

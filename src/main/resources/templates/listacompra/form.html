@@ -2,30 +2,75 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<!-- <head th:include="layout :: head"></head> -->
+    <head>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/styleform.css">
+    </head>
+    
 <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
+
+        <ul>
+            <li>
+                <a href="/home" >Home <i class="fa fa-home" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href="/clientes">Clientes</a>
+            </li>
+
+            <li>
+                <a href="/fornecedores">Fornecedores</a>
+            </li>
+            <li>
+                <a href="/produtos">Produtos</a>
+            </li>
+            <li>
+                <a href="/entregas"><i class="fa fa-truck" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+
         <form th:action="@{/listacompras/(form)}"
         method="POST" th:object="${listacompra}">
 
-        <input type="hidden" th:field="*{id}">
+        <!-- <input type="hidden" th:field="*{id}">
             <div class="form-group">
                 <label for="txtvalorTotal">Valor:</label>
                 <input type="text" th:field="*{valorTotal}"
                 class="form-control" id="txtvalorTotal">
+            </div> -->
+
+            <div class="form-group">
+                <label>Cliente:</label>
+                <select class="form-select" th:field="*{cliente}">
+                    <option th:each="umCliente : ${listaClientes}"
+                    th:text="${umCliente.nome}"
+                    th:value="${umCliente.id}"></option>
+                </select>
             </div>
+            <div class="form-group">
+                <label>Endereço Para Entrega:</label>
+                <select class="form-select" th:field="*{endereco}">
+                    <option th:each="umaEntrega : ${listaEntregas}"
+                    th:text="${umaEntrega.endereco}"
+                    th:value="${umaEntrega.id}"></option>
+                </select>
+            </div>
+
+            <hr>
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h3 class="card-title">
                         Produtos Cadastrados
-                    </h5>
+                    </h3>
                     <table class="table">
-                        <thead>
+                        <thead class="coluna">
                             <tr>
                                 <th>Produto</th>
                                 <th>Quantidade</th>
+                                <th>Valor</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -37,16 +82,77 @@
                                 <td th:text="${umItem.quantidade}"></td>
                                 <input type="hidden"
                                     th:field="*{listaItens[__${stat.index}__].quantidade}">
+                                <td th:text="${umItem.valorTotal}"></td>
+                                <input type="hidden"
+                                    th:field="*{colItens[__${stat.index}__].valorTotal}">
 
+                                    <td>
+                                        <button class="btn btn-danger" 
+                                        type="submit"
+                                        name="removeitem"
+                                        th:value="__${stat.index}__">Remover</button>
+                                    </td>      
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <hr>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        Novo Item de Venda
+                    </h3>
+                    <div class="form-group">
+                        <label for="cbproduto">Produto:</label>
+                        <select class="form-select" id="cbproduto"
+                            > 
+                            <option th:each="umProduto : ${listaProdutos}"
+                                    th:value="${umProduto.id}"
+                                    th:text="${umProduto.nome}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtQuantidade">Quantidade</label>
+                        <input type="number" id="txtQuantidade"
+                            class="form-control"
+                            >
+                    </div>
+                    <div class="form-group">
+                        <label for="txtValorVenda">Valor Unitário</label>
+                        <input type="number" id="txtValorVenda"
+                        class="form-control"
+                        > 
+                    </div>
+                    <button type="submit" name="incitem"
+                    class="btn btn-primary">Adicionar Item</button>
+                </div>
+            </div>
+            <button type="submit" name="save"
+            class="btn btn-primary">Enviar</button>
+
+            <a href="/home" class="btn btn-primary3">Cancelar</a>
         </form>
+        
     </main>
-    <!-- <footer th:include="layout :: footer"></footer> -->
+
+    <footer class="rodape1">
+        <p>
+            <i class="fab fa-instagram"aria-hidden="true"></i>
+            <a>Bryan Rode</a>
+        </p>
+        <p>
+            <i class="fab fa-linkedin"aria-hidden="true"></i>
+            <a>Bryan Rode</a>
+        </p>
+        <p>
+            <i class="fa fa-envelope"aria-hidden="true"></i>
+            <a>bryan.rode@univille.br</a>
+        </p>
+    </footer>
+    <script th:src="@{webjars/jquery/3.6.1/dist/jquery.min.js}"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.sistemamercado.entity.Produto;
+import br.univille.sistemamercado.service.FornecedorService;
 import br.univille.sistemamercado.service.ProdutoService;
 
 @Controller
@@ -19,6 +20,8 @@ public class ProdutoController {
     
     @Autowired 
     private ProdutoService service;
+    @Autowired
+    private FornecedorService fornecedorService;
 
     @GetMapping
     public ModelAndView index(){
@@ -29,8 +32,10 @@ public class ProdutoController {
     @GetMapping("/novo")
     public ModelAndView novo(){
         var produto = new Produto();
+        var listaFornecedores = fornecedorService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("produto", produto);
+        dados.put("listaFornecedores", listaFornecedores);
         return new ModelAndView("produto/form",dados);
     }
 
@@ -44,8 +49,10 @@ public class ProdutoController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") long id){
         var umProduto = service.findById(id);
+        var listaFornecedores = fornecedorService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("produto",umProduto);
+        dados.put("listaFornecedores", listaFornecedores);
         return new ModelAndView("produto/form", dados);
 
     }

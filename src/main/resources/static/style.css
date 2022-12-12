@@ -8,12 +8,16 @@ body{
 .container ul{
     list-style-type: none;
     padding: 0;
-    background-color: rgb(116, 89, 61);
+    background-color: rgb(45, 47, 62);
 }
 
 .container ul li{
     display: inline;
 }
+
+.container ul li:last-child{
+  float: right;
+} 
 
 .container ul li a{
     color: white;
@@ -23,16 +27,137 @@ body{
 }
 
 .container ul li a:hover{
-    color: rgb(63, 50, 50);
+    background-color: rgb(99, 98, 105);
 }
 
-.rodape{
+.rodape, .rodape1{
     padding: 0;
-    background-color: rgb(116, 89, 61);
+    background-color: rgb(24, 25, 28);
+    width: 100%;
+    bottom: 15px;
+    left: 0;
+    height: 130px;
+    border-top: 1px solid #333;
 }
 
-.rodape p{
+.rodape, .rodape1 p{
     color: white;
-    padding: 8px;
+    padding: 2px;
     text-align: center;
 }
+
+footer.rodape{
+    border-top: 1px solid #333;
+    bottom: 15px;
+    left: 0;
+    height: 130px;
+    position: fixed;
+    width: 100%;
+  }
+
+  button {
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .3s ;
+    border-radius: 3px;
+    margin: 10px;
+  }
+
+  .btn{
+    border: none;
+    padding: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .3s ;
+    border-radius: 3px;
+    margin: 10px;
+  }
+  .btn-primary{
+    background-color: rgb(86, 159, 238);
+    color: aliceblue;
+  }
+  .btn-primary:hover{
+    background-color: rgb(161, 172, 247);
+  }
+
+button{
+  background-color: rgb(226, 80, 76);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+button:hover{
+  background-color: rgb(251, 36, 36);
+}
+
+  .btn-primary2{
+    background-color: rgb(244, 244, 111);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+  .btn-primary2:hover{
+    background-color: rgb(255, 255, 32);
+  }
+
+  .btn-primary3{
+    background-color: rgb(226, 80, 76);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .btn-primary3:hover{
+    background-color: rgb(255, 18, 18);
+  }
+
+  .btn-excluir{
+    background-color: rgb(226, 80, 76);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 3px;
+  }
+  .btn-excluir:hover{
+    background-color: rgb(255, 18, 18);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  table {
+    margin: 10px;
+   
+  }
+
+  .modal {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     display: none;
+  }
+
+  /* .table{
+    padding: 20px;
+  }
+  .table th{
+    padding: 12px 60px 10px 60px;
+  }
+  .table td{
+    padding: 12px 60px 10px 60px;
+  } */
+
+  .coluna, th{
+    padding: 30px;
+  }
+  .card-title{
+    margin: 8px;
+  }

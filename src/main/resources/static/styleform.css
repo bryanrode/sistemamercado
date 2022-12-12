@@ -1,0 +1,30 @@
+form {
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px #999;
+}
+
+input, textarea, select {
+    width: 87%;
+    padding: 10px;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    font: 1em sans-serif;
+    border: 1px solid #999;
+}
+
+label {
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+button {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 3px;
+}
